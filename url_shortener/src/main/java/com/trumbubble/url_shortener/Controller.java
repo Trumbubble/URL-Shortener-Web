@@ -3,6 +3,8 @@ package com.trumbubble.url_shortener;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,9 +19,11 @@ public class Controller {
     @Autowired
     private UrlConverterService service;
 
-    @PostMapping(consumes = "application/json")
-    public String create(@RequestBody Map<String, String> body) {
+    @PostMapping(produces = "application/json")
+    public ResponseEntity<Map<String,String>> create(@RequestBody Map<String, String> body) {
         String longUrl = body.get("longUrl");
-        return service.addUrl(longUrl);
+        String shortCode = service.addUrl(longUrl);
+        return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("shortUrl", "http://localhost:8080/" + shortCode));
     }
+
 }
