@@ -17,9 +17,9 @@ public class UrlConverter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(name = "short_url", nullable = false)
+    @Column(name = "shorturl", nullable = false)
     private String shortURL;
 
-    @Column(name = "long_url", nullable = false, unique = true)
+    @Column(name = "longurl", nullable = false, unique = true)
     private String longURL;
 }

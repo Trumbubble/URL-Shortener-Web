@@ -1,7 +1,15 @@
 import logo from './logo.svg';
+import {Button, useState} from 'react';
 import './App.css';
 
 function App() {
+
+  const [longUrl, setLongUrl] = useState("");
+
+  const generateUrl = async () => {
+    body: JSON.stringify({ longUrl })
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,9 +25,24 @@ function App() {
         >
           Learn React
         </a>
+        <input
+          type="text"
+          value={longUrl}
+          onChange={(e) => setLongUrl(e.target.value)}
+          placeholder="Enter long URL"
+        />
+
+        <button onClick={generateUrl}>Generate</button>
+        {/* <Button
+          onPress={generateLink}
+          title="Learn More"
+          color="#841584"
+          accessbilityLabel="Learn more about this purple button"
+        /> */}
       </header>
     </div>
   );
 }
+
 
 export default App;

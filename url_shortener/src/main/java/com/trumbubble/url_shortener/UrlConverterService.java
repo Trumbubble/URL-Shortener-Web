@@ -1,18 +1,32 @@
 package com.trumbubble.url_shortener;
 
-public class UrlConverterService {
-    private UrlRepo repository;
+import org.springframework.stereotype.Service;
 
-    public UrlConverter addUrl(String longUrl)
+import jakarta.transaction.Transactional;
+
+@Service
+public class UrlConverterService {
+    private final UrlRepo repository;
+
+    public UrlConverterService(UrlRepo repository) {
+        this.repository = repository;
+    }
+
+    @Transactional
+    public String addUrl(String longUrl)
     {
         UrlConverter url = new UrlConverter();
         url.setLongURL(longUrl);
+        String shortUrl = " ";
+        url.setShortURL(shortUrl);
         url = repository.save(url);
 
-        String shortUrl = Encoder.encode(url.getId());
+        shortUrl = Encoder.encode(url.getId());
         url.setShortURL(shortUrl);
 
-        return repository.save(url);
+        repository.save(url);
+
+        return shortUrl;
     }
 
     public String getLongUrl(String shortUrl)
