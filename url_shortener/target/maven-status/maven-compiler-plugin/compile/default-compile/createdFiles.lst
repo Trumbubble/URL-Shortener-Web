@@ -4,3 +4,4 @@ com/trumbubble/url_shortener/Encoder.class
 com/trumbubble/url_shortener/Application.class
 com/trumbubble/url_shortener/UrlConverterService.class
 com/trumbubble/url_shortener/UrlConverter.class
+com/trumbubble/url_shortener/RedirectController.class

@@ -4,6 +4,9 @@ import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Encoder { //Using Feister Cipher
     
     static long N = (long) Math.pow(62,7);
