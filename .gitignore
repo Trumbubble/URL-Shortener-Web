@@ -1,0 +1,2 @@
+# Ignore real application config (contains postgresql config)
+backend/src/main/resources/application.properties
