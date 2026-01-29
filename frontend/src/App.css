@@ -39,8 +39,23 @@
 }
 
 .h1 {
+  color:#5b5b5b;
   font-size: 50px;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-weight: bold;
+
+}
+
+.h2 {
+  color:#5b5b5b;
+  font-size: 20px;
   font-family: "Times New Roman";
+  font-weight: thin;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
 }
 
 .header {
@@ -55,6 +70,19 @@
   height: 100px;
 }
 
+.display {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.bigImage {
+  width: auto;
+  height: 500px;
+  border-radius: 50px;
+
+}
+
 .logo-title {
   display: flex;
   align-items: center;
@@ -64,6 +92,12 @@
 .nav-buttons {
   display: flex;
   gap: 1rem; /* space between buttons */
+}
+
+.scroll-buttons {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
 }
 
 .table-wrap {

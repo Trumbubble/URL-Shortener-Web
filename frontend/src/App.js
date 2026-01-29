@@ -5,6 +5,7 @@ import "./App.css";
 function App() {
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
+  const shortRef = useRef(null);
 
   const [longUrl, setLongUrl] = useState("");
   const [shortUrl, setShortUrl] = useState("");
@@ -131,6 +132,7 @@ function App() {
   return (
     
     <div className="app-shell">
+      {/* NAVIGATION */}
       <nav className="nav">
         <div className="header">
           <div className="logo-title">
@@ -151,16 +153,36 @@ function App() {
             </button>
           </div>
         </div>
+        <hr></hr>
       </nav>
 
-
-      <hr></hr>
 
 
       <main className="container">
         {/* HOME SECTION */}
         <section ref={homeRef} className="panel section" id="home">
-          <h1 class = "h1" align="center">Shorten a link</h1>
+          <h1 class = "h1" align="center">Shorten your looong links</h1>
+          <h2 class = "h2" align="center">Gone are the days of long urls with hundreds of characters. Generate short URLs below </h2>
+
+          <br></br>
+
+          <div className="scroll-buttons">
+            <button className="button" onClick={() => scrollToSection(shortRef)}>
+              ShortUrl
+            </button>
+          </div>
+        </section>
+
+          <br></br>
+
+        <div className="display">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/015/181/358/non_2x/short-and-custom-urls-url-shortener-technology-and-generator-scissor-cut-an-address-bar-or-link-to-make-it-shorter-vector.jpg"
+            alt="bigImage"
+            className="bigImage"
+          />
+        </div>
+        <section ref={shortRef} className="panel section" id="shorten">
           <p className="muted">Paste a long URL below and generate a short link.</p>
 
           <div className="form-row">
@@ -183,7 +205,6 @@ function App() {
 
           {shortUrl && (
             <div className="result">
-              <div className="result-label">Short URL</div>
               <div className="result-row">
                 <a href={shortUrl} target="_blank" rel="noreferrer" className="result-link">{shortUrl}</a>
                 <button className="small" onClick={() => copyToClipboard(shortUrl)}>Copy</button>
@@ -207,7 +228,6 @@ function App() {
 
       <footer className="footer">
         <span>© {new Date().getFullYear()} Trumbubble</span>
-        <span className="muted"> • Local dev only</span>
       </footer>
     </div>
   );
