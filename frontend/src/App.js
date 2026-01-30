@@ -30,7 +30,7 @@ function App() {
     setShortUrl("");
 
     try {
-      const res = await fetch("http://localhost:8080/api/urls", {
+      const res = await fetch("/api/urls", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ longUrl })
