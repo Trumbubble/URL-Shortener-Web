@@ -239,15 +239,25 @@ function App() {
           <RecentTable />
         </section>
 
-        {/* ABOUT SECTION (below) */}
+        <br/> <br/> <br/>
+
+        {/* ABOUT SECTION */}
         <section ref={aboutRef} id="about" style={{ marginTop: 40, marginLeft: 24}}>
-          <h2 className="h2">About</h2>
-          <p>
-            This is a simple URL shortener demo (Spring Boot backend + React frontend).
-            Use the Home section above to create short links and view recent entries below.
+          <div className="center">
+            <h2 className="h2">About</h2>
+          </div>
+          <p className="center">
+            This is a simple URL shortener web service
+            (Spring Boot backend + React frontend + PostgreSQL datatable + Docker + AWS Cloud).
+          </p>
+          <p className="center">
+            I utilized Feister Cipher to generate unique short URLs for each long URL.
+            Use the section above to create short links and view recent entries below.
           </p>
         </section>
       </main>
+
+      <br/>
 
       <footer>
         <span style={{marginLeft: 48}}>© {new Date().getFullYear()} Trumbubble</span>
