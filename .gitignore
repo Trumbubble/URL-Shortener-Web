@@ -1,2 +1,27 @@
 # Ignore real application config (contains postgresql config)
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+
+# Java / SpringBoot
+target/
+*.log
+
+# Node / React
+node_modules/
+build/
+dist/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Database (local only)
+pgdata/
+postgres-data/
+
+#Miscellaneous
 backend/src/main/resources/application.properties
+docker-compose.override.yml
