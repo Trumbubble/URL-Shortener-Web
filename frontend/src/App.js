@@ -92,40 +92,40 @@ function App() {
   };
 
   const RecentTable = () => (
-    rows.length === 0 ? (
-      <p className="muted">No recent items yet — generate one!</p>
-    ) : (
-      <div className="table-wrap">
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Long URL</th>
-              <th>Short URL</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map(r => (
-              <tr key={r.id}>
-                <td className="long-cell" title={r.longurl}>
-                  {r.longurl}
-                </td>
-                <td className="short-cell">
-                  <a href={r.shortUrl} target="_blank" rel="noreferrer">
-                    {r.shortUrl}
-                  </a>
-                </td>
-                <td className="actions-cell">
-                  <button className="small" onClick={() => copyToClipboard(r.shortUrl)}>
-                    Copy
-                  </button>
-                </td>
+    <div className="table-container">
+      {rows.length === 0 ? (
+        <p className="muted" style={{marginLeft: 24}}>No recent items yet — generate one!</p>
+      ) : (
+        <div className="table-wrap">
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Long URL</th>
+                <th>Short URL</th>
+                <th></th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    )
+            </thead>
+            <tbody>
+              {rows.map(r => (
+                <tr key={r.id}>
+                  <td className="long-cell" title={r.longurl}>
+                    {r.longurl}
+                  </td>
+                  <td className="short-cell">
+                    <a href={r.shortUrl} target="_blank" rel="noreferrer">
+                      {r.shortUrl}
+                    </a>
+                  </td>
+                  <td className="actions-cell">
+                    <button className="copy-button" onClick={() => copyToClipboard(r.shortUrl)}>⧉ Copy</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
   );
 
 
@@ -197,7 +197,7 @@ function App() {
           />
         </div>
 
-        <br/> <hr/> <br/> <br/> <br/>
+        <br/> <br/> <br/> <br/> <br/> <br/>
 
         <section ref={shortRef} id="shorten">
 
@@ -231,15 +231,17 @@ function App() {
             </div>
           </div>
           
-          <br/><br/><br/><br/>
+          <br/> <br/> <br/>
 
-          <h3 style={{ marginTop: 24 }}>Recent</h3>
+          <div className="center">
+            <h2 className="h2" style={{ marginTop: 24, marginLeft: 24}}>Recent</h2>
+          </div>
           <RecentTable />
         </section>
 
         {/* ABOUT SECTION (below) */}
-        <section ref={aboutRef} id="about" style={{ marginTop: 40 }}>
-          <h1>About</h1>
+        <section ref={aboutRef} id="about" style={{ marginTop: 40, marginLeft: 24}}>
+          <h2 className="h2">About</h2>
           <p>
             This is a simple URL shortener demo (Spring Boot backend + React frontend).
             Use the Home section above to create short links and view recent entries below.
@@ -248,7 +250,7 @@ function App() {
       </main>
 
       <footer>
-        <span>© {new Date().getFullYear()} Trumbubble</span>
+        <span style={{marginLeft: 48}}>© {new Date().getFullYear()} Trumbubble</span>
       </footer>
     </div>
   );
