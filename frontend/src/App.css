@@ -1,6 +1,8 @@
-.App {
-  text-align: center;
-}
+.App {text-align: center;}
+
+section {scroll-margin-top: 100px;}
+
+.App-link {color: #61dafb;}
 
 .App-header {
   background-color: #282c34;
@@ -11,10 +13,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 .button {
@@ -35,17 +33,31 @@
 .result {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: space-between; /* push link left, button right */
+  gap: 1rem;
+  width: 100%;          /* take available width */
+  max-width: 720px;     /* wider = less truncation */
   padding: 0.75rem 1rem;
-  background: #f4f4f4;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  max-width: 600px;
-  margin: 2rem auto;
+  margin-top: 1.25rem;
+  box-sizing: border-box;
+}
+
+.result.placeholder {
+  background: #fafafa;
+  border: 1px dashed #e6e6e6; 
+  border-radius: 15px;
+  color: #777;
+}
+
+.result.active {
+  background: #f4f7fb;
+  box-shadow: 0 6px 14px rgba(20, 30, 60, 0.06);
+  border-radius: 15px;
+  border: 1px solid rgba(37,99,235,0.08);
 }
 
 .link {
-  flex: 1; /* link takes remaining space */
+  flex: 0.8;
   text-decoration: none;
   color: #2563eb;
   font-weight: 500;
@@ -53,6 +65,8 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.muted {color: #9aa2ac;}
 
 .copy-button {
   background-color: #2563eb;
@@ -65,7 +79,25 @@
   transition: background 0.2s ease, transform 0.15s ease;
 }
 
+.generate-button {
+  background-color: #2563eb;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  padding: 18px 40px;
+  font-size: 30px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+  font-family: "American Typewriter"
+}
+
 .copy-button:hover {
+  background-color: #1e40af;
+  transform: translateY(-1px);
+}
+
+.generate-button:hover {
   background-color: #1e40af;
   transform: translateY(-1px);
 }
@@ -107,13 +139,6 @@
   font-weight: thin;
 }
 
-.link {
-  color:#0000FF;
-  font-size: 20px;
-  font-family: "Times New Roman";
-  font-weight: thin;
-}
-
 .center {
   display: flex;
   justify-content: center;
@@ -141,8 +166,8 @@
   justify-content:center;
   width:2000px;
   max-width:80%;
-  height:25px;
-  font-size:20px;
+  height:30px;
+  font-size:22px;
   border-radius:10px;
   border:1px solid #000;
   margin-left: 2rem;

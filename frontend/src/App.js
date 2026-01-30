@@ -197,7 +197,7 @@ function App() {
           />
         </div>
 
-        <br/> <hr/> <br/>
+        <br/> <hr/> <br/> <br/> <br/>
 
         <section ref={shortRef} id="shorten">
 
@@ -213,20 +213,25 @@ function App() {
               placeholder="Enter a long URL (https://...)"
               onKeyDown={(e) => { if (e.key === "Enter") generateUrl(); }}
               aria-label="Long URL"
-            />
-            <button className="button" onClick={generateUrl} disabled={loading}>
+            /> <br/>
+            <button className="generate-button" onClick={generateUrl} disabled={loading}>
               {loading ? "Generating…" : "Generate"}
             </button>
-            <div className="h3">{status}</div>
 
-            {shortUrl && (
-              <div className="result">
-                <a href={shortUrl} target="_blank" rel="noreferrer" className="link">{shortUrl}</a>
-                <button className="copy-button" onClick={() => copyToClipboard(shortUrl)}>⧉ Copy</button>
-              </div>
-            )}
+            <div className="h3">{status}</div>
+            {/* ALWAYS render the result container so space is reserved */}
+            <div className={`result ${shortUrl ? "active" : "placeholder"}`}>
+              {shortUrl ? (<>
+                  <a href={shortUrl} target="_blank" rel="noreferrer" className="link"> {shortUrl} </a>
+                  <button className="copy-button" onClick={() => copyToClipboard(shortUrl)}>⧉ Copy</button>
+                </>) : (<>
+                  <span>Your short link will appear here</span>
+                  <button className="copy-button" disabled>⧉ Copy</button>
+                </>)}
+            </div>
           </div>
           
+          <br/><br/><br/><br/>
 
           <h3 style={{ marginTop: 24 }}>Recent</h3>
           <RecentTable />
