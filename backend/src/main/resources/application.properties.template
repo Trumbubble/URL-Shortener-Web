@@ -1,6 +1,16 @@
-spring.datasource.url=jdbc:postgresql://localhost:5432/url_shortener
-spring.datasource.username=postgres
-spring.datasource.password=YOUR_PASSWORD_HERE
+# Use env vars when present, otherwise fall back to container-friendly defaults
+spring.datasource.url=${SPRING_DATASOURCE_URL}
+spring.datasource.username=${SPRING_DATASOURCE_USERNAME}
+spring.datasource.password=${SPRING_DATASOURCE_PASSWORD}
 
-spring.jpa.hibernate.ddl-auto=update
+# Hikari pool settings (sensible dev defaults)
+spring.datasource.hikari.maximum-pool-size=10
+spring.datasource.hikari.minimum-idle=2
+spring.datasource.hikari.connection-timeout=30000
+spring.datasource.hikari.idle-timeout=600000
+spring.datasource.hikari.max-lifetime=1800000
+
+# JPA / Hibernate
+spring.jpa.hibernate.ddl-auto=${SPRING_JPA_HIBERNATE_DDL_AUTO:update}   # dev only
 spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
