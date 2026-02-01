@@ -7,11 +7,15 @@ React, Spring Boot, PostgreSQL, Nginx, Docker
 Update application.properties.template to include information for personal PostgreSQL database for fall-backs
 
 Create .env with the following PostgreSQL information:
+
 SPRING_DATASOURCE_URL=
+
 SPRING_DATASOURCE_USERNAME=
+
 SPRING_DATASOURCE_PASSWORD=
 
-## `docker-compose up --build`
+
+`docker-compose up --build`
 
 Launches the dockerized project (including the backend, frontend, and database).
 
