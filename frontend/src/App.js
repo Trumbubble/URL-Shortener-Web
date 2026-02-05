@@ -132,6 +132,8 @@ function App() {
   return (
     
     <div className="app-shell">
+    <div class="body">
+
       {/* NAVIGATION */}
       <nav className="nav">
         <div className="header">
@@ -156,7 +158,7 @@ function App() {
             </button>
           </div>
         </div>
-        <hr></hr>
+        <hr className="divider"></hr>
       </nav>
 
 
@@ -262,7 +264,7 @@ function App() {
       <footer>
         <span style={{marginLeft: 48}}>© {new Date().getFullYear()} Trumbubble</span>
       </footer>
-    </div>
+    </div></div>
   );
 }
 

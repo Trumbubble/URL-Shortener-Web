@@ -30,6 +30,13 @@ section {scroll-margin-top: 100px;}
   font-family: "American Typewriter";
 }
 
+body {
+  background-color: #fff;
+
+  background-image: radial-gradient(circle, #ccc 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
 .result {
   display: flex;
   align-items: center;
@@ -118,6 +125,7 @@ section {scroll-margin-top: 100px;}
 .nav {
   position: sticky;
   top: 0;
+  background-image: radial-gradient(circle, #ccc 2px, transparent 1px);
   background: white;
   z-index: 1000;
 }
@@ -177,6 +185,11 @@ section {scroll-margin-top: 100px;}
   border:1px solid #000;
   margin-left: 2rem;
   padding:10px;
+}
+
+.divider {
+  border: none;
+  border-top: 5px solid gray;
 }
 
 .display {
