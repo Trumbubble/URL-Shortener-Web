@@ -250,12 +250,13 @@ function App() {
           </div>
           <p className="center">
             This is a simple URL shortener web service
-            (Spring Boot backend + React frontend + PostgreSQL datatable + Docker + AWS Cloud).
+            (Spring Boot backend + React frontend + PostgreSQL datatable + Docker).
           </p>
           <p className="center">
-            I utilized Feister Cipher to generate unique short URLs for each long URL.
-            Use the section above to create short links and view recent entries below.
-          </p>
+            I utilized Feister Cipher to generate unique short URLs (less decipherable) for each long URL.
+            The same cipher can be used backwards to decipher.
+            </p>
+          <p className="center">Use the section above to create short links and view recent entries below.</p>
         </section>
       </main>
 
